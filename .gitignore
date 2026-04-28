@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Local-only Orchestrix scaffolding
+.orchestrix-core/
+.opencode/
+.youlidao/
+.youlidao-pod
+.mcp.json
+opencode.jsonc
+
+# Misc artifacts
+*.tar.gz

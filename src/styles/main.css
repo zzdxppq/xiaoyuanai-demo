@@ -1,0 +1,93 @@
+:root {
+  --brand-primary: #366ef4;
+  --brand-header-bg: #1f2d4f;
+  --brand-header-text: #ffffff;
+  --el-color-primary: #366ef4;
+  --el-menu-active-color: #366ef4;
+}
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #303133;
+}
+
+a { text-decoration: none; }
+
+.page-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+
+.page-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page-toolbar .search-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  transition: transform .2s, box-shadow .2s;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(54,110,244,.12);
+}
+.stat-card .icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+}
+.stat-card .meta .label {
+  font-size: 13px;
+  color: #909399;
+  margin-bottom: 4px;
+}
+.stat-card .meta .value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.add-form-card {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 6px;
+  max-width: 880px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  padding-left: 10px;
+  border-left: 3px solid var(--brand-primary);
+  color: #303133;
+}

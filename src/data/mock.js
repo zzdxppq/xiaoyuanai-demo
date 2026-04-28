@@ -1,0 +1,151 @@
+// 假数据集 - 仅供演示
+export const users = Array.from({ length: 24 }, (_, i) => ({
+  id: 1000 + i,
+  account: `user${1000 + i}`,
+  name: ['张明', '李华', '王芳', '赵强', '陈静', '刘伟', '杨帆', '黄敏'][i % 8] + (i + 1),
+  phone: `1${[3,5,7,8,9][i%5]}${String(10000000 + i * 137).slice(0, 8)}`,
+  school: ['北京实验小学', '海淀第三中学', '朝阳一小', '清华附中', '人大附小', '北师大二附'][i % 6],
+  role: ['超级管理员', '校长', '教师', '学生', '家长'][i % 5],
+  status: i % 7 === 0 ? 0 : 1,
+  createTime: `2026-0${(i % 4) + 1}-${String((i % 28) + 1).padStart(2, '0')} 09:${String((i * 7) % 60).padStart(2, '0')}:00`
+}))
+
+export const schools = Array.from({ length: 18 }, (_, i) => ({
+  id: 2000 + i,
+  name: ['北京实验小学', '海淀第三中学', '朝阳一小', '清华附中', '人大附小', '北师大二附属', '景山学校', '十一学校', '中关村中学'][i % 9] + (i < 9 ? '' : '(分校)'),
+  area: ['海淀区', '朝阳区', '东城区', '西城区', '丰台区', '通州区'][i % 6],
+  level: ['小学', '初中', '高中', '九年一贯制'][i % 4],
+  studentCount: 800 + (i * 137) % 2000,
+  teacherCount: 50 + (i * 13) % 80,
+  contact: ['张校长', '李校长', '王主任', '赵主任'][i % 4],
+  phone: `010-8${String(1000000 + i * 9341).slice(0, 7)}`,
+  status: 1,
+  createTime: `2026-0${(i % 4) + 1}-${String((i % 28) + 1).padStart(2, '0')}`
+}))
+
+export const areas = [
+  { id: 1, code: '110108', name: '海淀区', parent: '北京市', schoolCount: 132, level: '区', sort: 1 },
+  { id: 2, code: '110105', name: '朝阳区', parent: '北京市', schoolCount: 198, level: '区', sort: 2 },
+  { id: 3, code: '110101', name: '东城区', parent: '北京市', schoolCount: 76, level: '区', sort: 3 },
+  { id: 4, code: '110102', name: '西城区', parent: '北京市', schoolCount: 84, level: '区', sort: 4 },
+  { id: 5, code: '110106', name: '丰台区', parent: '北京市', schoolCount: 95, level: '区', sort: 5 },
+  { id: 6, code: '110112', name: '通州区', parent: '北京市', schoolCount: 67, level: '区', sort: 6 },
+  { id: 7, code: '110114', name: '昌平区', parent: '北京市', schoolCount: 78, level: '区', sort: 7 },
+  { id: 8, code: '110115', name: '大兴区', parent: '北京市', schoolCount: 65, level: '区', sort: 8 },
+  { id: 9, code: '110113', name: '顺义区', parent: '北京市', schoolCount: 54, level: '区', sort: 9 },
+  { id: 10, code: '110116', name: '怀柔区', parent: '北京市', schoolCount: 32, level: '区', sort: 10 },
+  { id: 11, code: '120000', name: '天津市', parent: '中国', schoolCount: 0, level: '市', sort: 11 },
+  { id: 12, code: '130000', name: '河北省', parent: '中国', schoolCount: 0, level: '省', sort: 12 }
+]
+
+export const roles = [
+  { id: 1, code: 'SUPER_ADMIN', name: '超级管理员', desc: '拥有系统全部权限', userCount: 3, status: 1, createTime: '2026-01-05' },
+  { id: 2, code: 'AREA_ADMIN', name: '区域管理员', desc: '管理本区域下所有学校', userCount: 12, status: 1, createTime: '2026-01-08' },
+  { id: 3, code: 'SCHOOL_ADMIN', name: '学校管理员', desc: '管理本校师生数据', userCount: 86, status: 1, createTime: '2026-01-10' },
+  { id: 4, code: 'PRINCIPAL', name: '校长', desc: '本校最高权限', userCount: 56, status: 1, createTime: '2026-01-12' },
+  { id: 5, code: 'TEACHER', name: '教师', desc: '使用 AI 工具进行教学', userCount: 1240, status: 1, createTime: '2026-01-15' },
+  { id: 6, code: 'STUDENT', name: '学生', desc: '使用 AI 工具进行学习', userCount: 8632, status: 1, createTime: '2026-01-15' },
+  { id: 7, code: 'PARENT', name: '家长', desc: '查看孩子学习情况', userCount: 4218, status: 1, createTime: '2026-01-15' },
+  { id: 8, code: 'AUDITOR', name: '内容审核员', desc: '审核 AI 作品', userCount: 8, status: 0, createTime: '2026-02-01' }
+]
+
+export const apps = Array.from({ length: 16 }, (_, i) => ({
+  id: 3000 + i,
+  name: ['智能作文批改', 'AI 数学解题', '英语口语陪练', '历史知识图谱', '物理实验模拟', '化学方程式助手', '编程入门教练', '思维导图生成', '听写机器人', '诗词鉴赏', '生物进化探秘', '地理知识问答', '美术鉴赏', '音乐创作', '体育健康分析', '心理咨询助手'][i],
+  category: ['学科教学', '学习辅导', '素质拓展', '管理工具'][i % 4],
+  model: ['京师大模型 v2.1', 'GPT-4', 'Claude 3', '文心一言 4.0'][i % 4],
+  scene: 8 + (i % 12),
+  callCount: 1200 + (i * 173) % 50000,
+  status: i % 8 === 0 ? 0 : 1,
+  createTime: `2026-0${(i % 4) + 1}-${String((i % 28) + 1).padStart(2, '0')}`
+}))
+
+export const scenes = Array.from({ length: 20 }, (_, i) => ({
+  id: 4000 + i,
+  name: ['课堂实时问答', '课后作业辅导', '错题再练', '单元测验', '小组讨论', '家校沟通', '研学日记', '学情分析', '教研备课', '试题命制', '校园文化展示', '社团招新', '心理疏导', '生涯规划', '志愿填报', '家长开放日', '教师发展', '德育评价', '体育训练', '艺术展演'][i],
+  category: ['教学场景', '学习场景', '管理场景', '德育场景'][i % 4],
+  appCount: 2 + (i % 5),
+  promptVersion: `v1.${i % 8}.${i % 4}`,
+  status: i % 9 === 0 ? 0 : 1,
+  createTime: `2026-0${(i % 4) + 1}-${String((i % 28) + 1).padStart(2, '0')}`
+}))
+
+export const models = [
+  { id: 1, name: '京师大模型 v2.1', provider: '京师数据', type: '通用大模型', context: '128K', price: '0.012 元/千Tokens', appCount: 26, status: 1, createTime: '2026-01-15' },
+  { id: 2, name: '京师教育模型', provider: '京师数据', type: '教育垂直', context: '64K', price: '0.008 元/千Tokens', appCount: 18, status: 1, createTime: '2026-02-01' },
+  { id: 3, name: 'GPT-4 Turbo', provider: 'OpenAI', type: '通用大模型', context: '128K', price: '0.075 元/千Tokens', appCount: 12, status: 1, createTime: '2026-01-20' },
+  { id: 4, name: 'Claude 3.5 Sonnet', provider: 'Anthropic', type: '通用大模型', context: '200K', price: '0.060 元/千Tokens', appCount: 9, status: 1, createTime: '2026-01-22' },
+  { id: 5, name: '文心一言 4.0', provider: '百度', type: '通用大模型', context: '32K', price: '0.020 元/千Tokens', appCount: 14, status: 1, createTime: '2026-02-10' },
+  { id: 6, name: '通义千问 2.5', provider: '阿里', type: '通用大模型', context: '32K', price: '0.018 元/千Tokens', appCount: 11, status: 1, createTime: '2026-02-15' },
+  { id: 7, name: 'DeepSeek-V2', provider: '深度求索', type: '通用大模型', context: '128K', price: '0.005 元/千Tokens', appCount: 7, status: 1, createTime: '2026-03-01' },
+  { id: 8, name: '京师文生图', provider: '京师数据', type: '图像生成', context: '-', price: '0.20 元/张', appCount: 6, status: 1, createTime: '2026-03-08' },
+  { id: 9, name: '京师语音合成', provider: '京师数据', type: '语音合成', context: '-', price: '0.10 元/万字符', appCount: 4, status: 1, createTime: '2026-03-12' },
+  { id: 10, name: '京师 OCR', provider: '京师数据', type: 'OCR 识别', context: '-', price: '0.015 元/次', appCount: 5, status: 0, createTime: '2026-03-20' }
+]
+
+export const packages = [
+  { id: 1, name: '基础版', target: '个人', price: 0, period: '永久', tokenLimit: '10万 Tokens/月', appCount: 5, userLimit: 1, sales: 12380, status: 1 },
+  { id: 2, name: '标准版', target: '个人', price: 39, period: '月', tokenLimit: '100万 Tokens/月', appCount: 15, userLimit: 1, sales: 5621, status: 1 },
+  { id: 3, name: '专业版', target: '个人', price: 99, period: '月', tokenLimit: '500万 Tokens/月', appCount: 30, userLimit: 1, sales: 1843, status: 1 },
+  { id: 4, name: '年度专业版', target: '个人', price: 999, period: '年', tokenLimit: '500万 Tokens/月', appCount: '全部', userLimit: 1, sales: 712, status: 1 },
+  { id: 5, name: '班级套餐', target: '团体', price: 1999, period: '年', tokenLimit: '5000万 Tokens/年', appCount: '全部', userLimit: 60, sales: 234, status: 1 },
+  { id: 6, name: '校园套餐 (小)', target: '团体', price: 19999, period: '年', tokenLimit: '5亿 Tokens/年', appCount: '全部', userLimit: 1000, sales: 87, status: 1 },
+  { id: 7, name: '校园套餐 (大)', target: '团体', price: 49999, period: '年', tokenLimit: '20亿 Tokens/年', appCount: '全部', userLimit: 5000, sales: 32, status: 1 },
+  { id: 8, name: '区域套餐', target: '团体', price: 199999, period: '年', tokenLimit: '不限', appCount: '全部 + 定制', userLimit: '不限', sales: 6, status: 1 }
+]
+
+export const personalPackages = Array.from({ length: 18 }, (_, i) => ({
+  id: 5000 + i,
+  user: ['张明', '李华', '王芳', '赵强', '陈静', '刘伟'][i % 6] + (i + 1),
+  phone: `1${[3,5,7,8,9][i%5]}${String(10000000 + i * 217).slice(0, 8)}`,
+  packageName: ['基础版', '标准版', '专业版', '年度专业版'][i % 4],
+  amount: [0, 39, 99, 999][i % 4],
+  startTime: `2026-0${(i % 4) + 1}-${String((i % 28) + 1).padStart(2, '0')}`,
+  endTime: `2027-0${(i % 4) + 1}-${String((i % 28) + 1).padStart(2, '0')}`,
+  remainTokens: `${(50 + (i * 13) % 450).toFixed(0)}万`,
+  status: i % 6 === 0 ? 2 : 1
+}))
+
+export const groupRecharges = Array.from({ length: 14 }, (_, i) => ({
+  id: 6000 + i,
+  school: ['北京实验小学', '海淀第三中学', '朝阳一小', '清华附中', '人大附小'][i % 5],
+  packageName: ['班级套餐', '校园套餐 (小)', '校园套餐 (大)', '区域套餐'][i % 4],
+  amount: [1999, 19999, 49999, 199999][i % 4],
+  count: 1 + (i % 4),
+  totalUsers: (1 + (i % 4)) * [60, 1000, 5000, 10000][i % 4],
+  operator: ['张明', '李华', '王芳'][i % 3],
+  rechargeTime: `2026-0${(i % 4) + 1}-${String((i % 28) + 1).padStart(2, '0')} 14:${String((i * 7) % 60).padStart(2, '0')}:00`,
+  status: 1
+}))
+
+export const works = Array.from({ length: 22 }, (_, i) => ({
+  id: 7000 + i,
+  title: ['我心中的春天', 'AI 辅助下的勾股定理证明', '英语演讲：Future of Education', '一次有趣的物理实验', '我的家乡 - 北京', 'Python 编程作业', '化学方程式速记法', '历史人物分析报告', '生物多样性调查', '地理气候研究', '美术作品：未来城市', '原创诗歌一首', '数学建模实验', '心理健康调查', '体育训练计划'][i % 15],
+  author: ['张明', '李华', '王芳', '赵强', '陈静', '刘伟'][i % 6] + (i + 1),
+  school: ['北京实验小学', '海淀第三中学', '朝阳一小', '清华附中'][i % 4],
+  app: ['智能作文批改', 'AI 数学解题', '英语口语陪练', '物理实验模拟'][i % 4],
+  type: ['文本', '图片', '音频', '视频'][i % 4],
+  submitTime: `2026-04-${String((i % 28) + 1).padStart(2, '0')} ${String(8 + (i % 12)).padStart(2, '0')}:${String((i * 7) % 60).padStart(2, '0')}`,
+  status: ['待审核', '已通过', '已驳回'][i % 3]
+}))
+
+export const shareReviews = Array.from({ length: 16 }, (_, i) => ({
+  id: 8000 + i,
+  workTitle: ['我心中的春天', '英语演讲：Future of Education', '一次有趣的物理实验', '原创诗歌一首', '美术作品：未来城市'][i % 5],
+  author: ['张明', '李华', '王芳', '赵强'][i % 4] + (i + 1),
+  shareScope: ['全平台公开', '仅校内', '仅班级', '仅好友'][i % 4],
+  applyTime: `2026-04-${String((i % 28) + 1).padStart(2, '0')} ${String(9 + (i % 10)).padStart(2, '0')}:${String((i * 11) % 60).padStart(2, '0')}`,
+  reviewer: i % 3 === 0 ? '-' : ['王老师', '李主任', '赵审核'][i % 3],
+  status: ['待审核', '已通过', '已驳回'][i % 3]
+}))
+
+export const workScenes = [
+  { id: 1, name: '校园风采展示', desc: '展示校园生活和学生风采的优秀作品', workCount: 268, sort: 1, status: 1, updateTime: '2026-04-12' },
+  { id: 2, name: '学科作品精选', desc: '各学科教学过程中产生的优秀 AI 作品', workCount: 412, sort: 2, status: 1, updateTime: '2026-04-15' },
+  { id: 3, name: '创意美术', desc: 'AI 辅助下学生创作的美术作品', workCount: 187, sort: 3, status: 1, updateTime: '2026-04-08' },
+  { id: 4, name: '原创音视频', desc: '学生原创音乐、视频作品集', workCount: 96, sort: 4, status: 1, updateTime: '2026-04-10' },
+  { id: 5, name: '科创作品', desc: '科技创新类作品，含编程、机器人等', workCount: 142, sort: 5, status: 1, updateTime: '2026-04-18' },
+  { id: 6, name: '德育主题作品', desc: '社会主义核心价值观、传统文化等主题作品', workCount: 78, sort: 6, status: 1, updateTime: '2026-04-20' },
+  { id: 7, name: '英语角', desc: '英语学习相关作品，含演讲、写作等', workCount: 154, sort: 7, status: 0, updateTime: '2026-03-22' },
+  { id: 8, name: '家庭亲子作品', desc: '家长与孩子共同完成的作品', workCount: 63, sort: 8, status: 1, updateTime: '2026-04-25' }
+]
